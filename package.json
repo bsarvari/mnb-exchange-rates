@@ -5,7 +5,7 @@
   "main": "src/index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "run": "node --loader ts-node/esm src/index.ts"
+    "fx": "node --loader ts-node/esm src/index.ts"
   },
   "repository": {
     "type": "git",
