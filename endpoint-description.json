@@ -1,0 +1,76 @@
+{
+  "MNBArfolyamServiceSoapImpl": {
+    "CustomBinding_MNBArfolyamServiceSoap": {
+      "GetCurrencies": {
+        "input": {
+          "targetNSAlias": "tns",
+          "targetNamespace": "http://www.mnb.hu/webservices/"
+        },
+        "output": {
+          "GetCurrenciesResult": "xs:string",
+          "targetNSAlias": "tns",
+          "targetNamespace": "http://www.mnb.hu/webservices/"
+        }
+      },
+      "GetCurrencyUnits": {
+        "input": {
+          "currencyNames": "xs:string",
+          "targetNSAlias": "tns",
+          "targetNamespace": "http://www.mnb.hu/webservices/"
+        },
+        "output": {
+          "GetCurrencyUnitsResult": "xs:string",
+          "targetNSAlias": "tns",
+          "targetNamespace": "http://www.mnb.hu/webservices/"
+        }
+      },
+      "GetCurrentExchangeRates": {
+        "input": {
+          "targetNSAlias": "tns",
+          "targetNamespace": "http://www.mnb.hu/webservices/"
+        },
+        "output": {
+          "GetCurrentExchangeRatesResult": "xs:string",
+          "targetNSAlias": "tns",
+          "targetNamespace": "http://www.mnb.hu/webservices/"
+        }
+      },
+      "GetDateInterval": {
+        "input": {
+          "targetNSAlias": "tns",
+          "targetNamespace": "http://www.mnb.hu/webservices/"
+        },
+        "output": {
+          "GetDateIntervalResult": "xs:string",
+          "targetNSAlias": "tns",
+          "targetNamespace": "http://www.mnb.hu/webservices/"
+        }
+      },
+      "GetExchangeRates": {
+        "input": {
+          "startDate": "xs:string",
+          "endDate": "xs:string",
+          "currencyNames": "xs:string",
+          "targetNSAlias": "tns",
+          "targetNamespace": "http://www.mnb.hu/webservices/"
+        },
+        "output": {
+          "GetExchangeRatesResult": "xs:string",
+          "targetNSAlias": "tns",
+          "targetNamespace": "http://www.mnb.hu/webservices/"
+        }
+      },
+      "GetInfo": {
+        "input": {
+          "targetNSAlias": "tns",
+          "targetNamespace": "http://www.mnb.hu/webservices/"
+        },
+        "output": {
+          "GetInfoResult": "xs:string",
+          "targetNSAlias": "tns",
+          "targetNamespace": "http://www.mnb.hu/webservices/"
+        }
+      }
+    }
+  }
+}
