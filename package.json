@@ -1,0 +1,29 @@
+{
+  "name": "mnb-exchange-rates",
+  "version": "1.0.0",
+  "description": "Simple interface to fetch MNB exchange rates",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bsarvari/mnb-exchange-rates.git"
+  },
+  "keywords": [
+    "MNB",
+    "exchange",
+    "rates",
+    "financials",
+    "API"
+  ],
+  "author": "Balazs Sarvari",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/bsarvari/mnb-exchange-rates/issues"
+  },
+  "homepage": "https://github.com/bsarvari/mnb-exchange-rates#readme",
+  "engines": {
+    "node": '>=18.0.0'
+  }
+}
