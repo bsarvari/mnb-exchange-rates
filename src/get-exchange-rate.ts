@@ -70,14 +70,14 @@ function simplifyExchangeRateData(data: MNBExchangeRatesData): SimplifiedExchang
   return simplifiedData;
 }
 
-async function getUSDHUFExchangeRate(dateStr?: string): Promise<number> {
+async function getHUFExchangeRate(dateStr?: string, currency: string = 'USD'): Promise<number> {
   dateStr = dateStr || formatDateToYYYYMMDD(new Date());
   const client = await soap.createClientAsync(MNB_EXCHANGE_RATE_SERVICE_URL);
 
   const [result] = await client.GetExchangeRatesAsync({
     startDate: dateStr,
     endDate: dateStr,
-    currencyNames: 'USD'
+    currencyNames: currency
   });
 
   const xmlResult = result.GetExchangeRatesResult;
@@ -91,4 +91,4 @@ async function getUSDHUFExchangeRate(dateStr?: string): Promise<number> {
 // console.log(`USD/HUF exchange rate for ${dateInputStr}: ${usdHufExchangeRate}`);
 
 export { formatDateToYYYYMMDD };
-export default getUSDHUFExchangeRate;
+export default getHUFExchangeRate;
