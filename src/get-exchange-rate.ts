@@ -86,9 +86,5 @@ async function getHUFExchangeRate(dateStr?: string, currency: string = 'USD'): P
   return simplifiedResult[dateStr]
 }
 
-// const dateInputStr = process.argv[2] || formatDateToYYYYMMDD(new Date());
-// const usdHufExchangeRate = await getUSDHUFExchangeRate(dateInputStr);
-// console.log(`USD/HUF exchange rate for ${dateInputStr}: ${usdHufExchangeRate}`);
-
 export { formatDateToYYYYMMDD };
 export default getHUFExchangeRate;
