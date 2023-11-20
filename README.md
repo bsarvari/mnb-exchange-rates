@@ -2,7 +2,7 @@
 CLI to fetch MNB exchange rates for HUF
 
 ## Usage
-Note that for weekend days the MNB may not have data available which causes an error.
+Note that for weekend days the MNB may not have data available which can cause an error.
 
 * Default date: current date
 * Default currency: USD
