@@ -32,6 +32,7 @@
     "typescript": "^5.2.2"
   },
   "dependencies": {
+    "command-line-args": "^5.2.1",
     "soap": "^1.0.0",
     "xml-js": "^1.6.11"
   },

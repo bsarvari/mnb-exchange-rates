@@ -1,0 +1,14 @@
+# Usage
+
+Default date: current date
+Default currency: USD
+
+Examples:
+```bash
+# list EUR/HUF rates from 2023-11-02 to 2023-11-21
+npm run fx -- --start-date 2023-11-02 --end-date 2023-11-21 --currency EUR
+npm run fx -- 2023-11-02 -e 2023-11-21 -c EUR
+
+# Print USD/HUF rate on current date - note this might fail if the current date is a weekend or a holiday
+npm run fx
+```

@@ -48,42 +48,45 @@ function formatDateToYYYYMMDD(date: Date) {
   return `${year}-${month}-${day}`;
 }
 
-function simplifyExchangeRateData(data: MNBExchangeRatesData): SimplifiedExchangeRateData {
-  const simplifiedData: SimplifiedExchangeRateData = {};
+function parseExchangeRates(data) {
+  const exchangeRatesMap = new Map();
 
-  if (data && data.elements && data.elements.length > 0) {
-    const exchangeRates = data.elements[0].elements;
+  if (data.elements && data.elements.length > 0) {
+    const days = data.elements[0].elements;
+    for (const day of days) {
+      const date = day.attributes.date;
+      const rateElement = day.elements.find((el) => el.name === "Rate");
 
-    exchangeRates.forEach((exchangeRate) => {
-      if (exchangeRate.name === 'Day' && exchangeRate.attributes.date) {
-        const date = exchangeRate.attributes.date;
-        const rateElement = exchangeRate.elements.find((element) => element.name === 'Rate');
+      if (date && rateElement) {
+        const exchangeRate = parseFloat(rateElement.elements[0].text.replace(",", "."));
 
-        if (rateElement && rateElement.elements.length > 0) {
-          const exchangeRateValue = parseFloat(rateElement.elements[0].text.replace(',', '.'));
-          simplifiedData[date] = exchangeRateValue;
+        if (!isNaN(exchangeRate)) {
+          const key = date;
+          exchangeRatesMap.set(key, exchangeRate);
         }
       }
-    });
+    }
   }
 
-  return simplifiedData;
+  // Convert the map to an array of entries, sort by date, and create a new map
+  const sortedExchangeRatesMap = new Map([...exchangeRatesMap.entries()].sort());
+  return sortedExchangeRatesMap;
 }
 
-async function getHUFExchangeRate(dateStr?: string, currency: string = 'USD'): Promise<number> {
-  dateStr = dateStr || formatDateToYYYYMMDD(new Date());
+async function getHUFExchangeRate(startDate?: string, endDate?: string, currency: string = 'USD'): Promise<Map<any, any>> {
+  startDate = startDate || formatDateToYYYYMMDD(new Date());
+  endDate = endDate || startDate;
   const client = await soap.createClientAsync(MNB_EXCHANGE_RATE_SERVICE_URL);
 
   const [result] = await client.GetExchangeRatesAsync({
-    startDate: dateStr,
-    endDate: dateStr,
+    startDate,
+    endDate,
     currencyNames: currency
   });
 
   const xmlResult = result.GetExchangeRatesResult;
   const jsonResult = convert.xml2json(xmlResult)
-  const simplifiedResult = simplifyExchangeRateData(JSON.parse(jsonResult));
-  return simplifiedResult[dateStr]
+  return parseExchangeRates(JSON.parse(jsonResult))
 }
 
 export { formatDateToYYYYMMDD };
