@@ -23,6 +23,6 @@ npm run fx -- 2023-11-02 -e 2023-11-21 -c EUR
 ```
 
 ## TODO
-- [] make tsc compilation work
-- [] expose utility as aws lambda function
+- [ ] make tsc compilation work
+- [ ] expose utility as aws lambda function
 - [x] support multiple currencies and perhaps date ranges
