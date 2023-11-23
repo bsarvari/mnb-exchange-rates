@@ -13,12 +13,14 @@
   },
   "keywords": [
     "MNB",
-    "exchange",
-    "rates",
+    "Magyar Nemzeti Bank",
+    "National Bank of Hungary",
+    "exchange rates",
     "financials",
     "API"
   ],
   "author": "Balazs Sarvari",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/bsarvari/mnb-exchange-rates/issues"
   },
