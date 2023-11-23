@@ -20,11 +20,14 @@ npm run fx -- 2023-10-10
 npm run fx -- --start-date 2023-11-02 --end-date 2023-11-21 --currency EUR
 npm run fx -- 2023-11-02 -e 2023-11-21 -c EUR
 
+# save USD/HUF exchange rates as a json file for 2022 
+npm run fx -- -s 2022-01-01 -e 2022-12-31 -w
+
 ```
 
 ## TODO
-- [ ] store exchange rates in json files for quick access
 - [ ] publish as npm package
 - [ ] make tsc compilation work
 - [ ] expose utility as aws lambda function
+- [x] store exchange rates in json files for quick access
 - [x] support multiple currencies and perhaps date ranges
