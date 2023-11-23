@@ -61,16 +61,14 @@ function parseExchangeRates(data) {
         const exchangeRate = parseFloat(rateElement.elements[0].text.replace(",", "."));
 
         if (!isNaN(exchangeRate)) {
-          const key = date;
-          exchangeRatesMap.set(key, exchangeRate);
+          exchangeRatesMap.set(date, exchangeRate);
         }
       }
     }
   }
 
   // Convert the map to an array of entries, sort by date, and create a new map
-  const sortedExchangeRatesMap = new Map([...exchangeRatesMap.entries()].sort());
-  return sortedExchangeRatesMap;
+  return new Map([...exchangeRatesMap.entries()].sort());
 }
 
 async function getHUFExchangeRate(startDate?: string, endDate?: string, currency: string = 'USD'): Promise<Map<any, any>> {
