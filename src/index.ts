@@ -1,4 +1,4 @@
-import getHUFExchangeRates, { formatDateToYYYYMMDD } from "./get-exchange-rate.ts";
+import getHUFExchangeRates, { formatDateToYYYYMMDD } from "./get-exchange-rates.ts";
 import { generateMNBCurrencyLink } from "./generate-mnb-currency-link.ts";
 import commandLineArgs from "command-line-args";
 import saveExchangeRates from "./save-exchange-rates.ts";
@@ -22,6 +22,6 @@ if (options['save']) {
   await saveExchangeRates(startDate, endDate, currency, exchangeRates)
 }
 if (options['print']) {
+  console.log(`\n${generateMNBCurrencyLink(startDate, endDate, currency)}\n`);
   printExchangeRateData(exchangeRates, currency)
 }
-console.log(`\n${generateMNBCurrencyLink(startDate, options.currency)}\n`);
